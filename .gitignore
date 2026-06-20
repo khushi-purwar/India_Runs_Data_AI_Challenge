@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+India_runs_data_and_ai_challenge/
+
+# Data (large / provided separately by the organizers)
+India_runs_data_and_ai_challenge/candidates.jsonl
+India_runs_data_and_ai_challenge/candidates.jsonl.gz
+*.extracted.txt
+sample_candidates.jsonl
+
+# Outputs
+submission.csv
+sample_out.csv
+.cache/
+embeddings_cache/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

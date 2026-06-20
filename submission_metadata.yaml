@@ -1,0 +1,76 @@
+# Redrob Hackathon — Submission Metadata
+# Fill in the TODO fields before submitting via the portal.
+
+team_name: "Relevance Engine"
+
+primary_contact:
+  name: "Khushi Purwar"
+  email: "khushipurwar4@gmail.com"
+  phone: "+91-7248565163"
+
+team_members:
+  - name: "Khushi Purwar"
+    email: "khushipurwar4@gmail.com"
+    role: "Data Engineer 2"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/khushi-purwar/India_Runs_Data_AI_Challenge"
+sandbox_link: ""
+reproduce_command: "python rank.py --candidates ./India_runs_data_and_ai_challenge/candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows 11 laptop"          # TODO: update to your machine
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11.9"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration (transparency only — declared use is not penalized)
+# ============================================================================
+ai_tools_used:
+  - "GitHub Copilot"
+
+ai_usage_summary: |
+  AI coding assistance (GitHub Copilot / Claude) was used for code review,
+  documentation, and autocomplete. All scoring logic, the JD interpretation,
+  the honeypot heuristics, and the feature design are the team's own
+  engineering. No candidate data was sent to any hosted LLM, and the ranker
+  makes no network calls at ranking time.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Hybrid, fully-offline ranker (~55s for 100K candidates on CPU). The JD is
+  hand-translated into a structured signal vocabulary (must-haves, nice-to-haves,
+  explicit disqualifiers). Each candidate gets seven interpretable component
+  scores — domain evidence (retrieval/ranking/recsys/NLP, weighted toward
+  hard-to-fake career prose + TF-IDF semantic match), role-title fit, trusted
+  skills, experience band, product-vs-consulting, location, and education —
+  combined by weighted sum. Two multipliers then apply: a behavioral
+  availability modifier (recency, recruiter response rate, open-to-work) and the
+  JD's explicit anti-signals (consulting-only career, CV/speech-only, title
+  chasing, academia-only). A honeypot detector hard-zeros impossible profiles
+  (tenure exceeding company age, expert skills with zero usage), keeping the
+  top-100 honeypot rate at 0%. Reasoning strings are generated only from real
+  profile facts, with honest concerns surfaced.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

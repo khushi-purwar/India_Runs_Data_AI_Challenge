@@ -1,0 +1,5 @@
+[server]
+# Raise the file-upload cap (default is 200 MB) so larger candidate samples
+# can be uploaded into the sandbox. Value is in MB.
+maxUploadSize = 500
+maxMessageSize = 500
