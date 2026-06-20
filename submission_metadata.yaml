@@ -17,7 +17,7 @@ team_members:
 # Code and reproducibility
 # ============================================================================
 github_repo: "https://github.com/khushi-purwar/India_Runs_Data_AI_Challenge"
-sandbox_link: ""
+sandbox_link: "https://khushi-purwar-india-runs-data-ai-challenge-app-h7tgrm.streamlit.app/"
 reproduce_command: "python rank.py --candidates ./India_runs_data_and_ai_challenge/candidates.jsonl --out ./submission.csv"
 
 # ============================================================================
